@@ -1,11 +1,11 @@
 class Game {
-	playerOne: Player;
+  playerOne: Player;
   playerTwo: Player;
   scoreValues: number[] = [0, 15, 30, 40];
   
   constructor(nameOne: string, nameTwo: string){
-  	console.log("init game creation");
-  	this.playerOne = new Player(nameOne);
+    console.log("init game creation");
+    this.playerOne = new Player(nameOne);
     this.playerTwo = new Player(nameTwo);
     document.querySelector("#players").innerHTML = nameOne + " contre " + nameTwo;
     document.querySelector("#scores").innerHTML = this.evaluateScore();
@@ -13,7 +13,7 @@ class Game {
   }
   
   playerOneScores(){
-  	this.playerOne.playerScores();
+    this.playerOne.playerScores();
     document.querySelector("#scores").innerHTML = this.evaluateScore();
     if(this.evaluateScore().indexOf("victoire") !== -1){
     	document.getElementById("addPoints").hidden = true;
@@ -21,21 +21,21 @@ class Game {
   }
   
   playerTwoScores(){
-  	this.playerTwo.playerScores();
+    this.playerTwo.playerScores();
     document.querySelector("#scores").innerHTML = this.evaluateScore();
     if(this.evaluateScore().indexOf("victoire") !== -1){
     	document.getElementById("addPoints").hidden = true;
     }
   }
   
- 	evaluateScore(){
-  	const scoreP1 = this.playerOne.getScore();
-    const	nameP1 = this.playerOne.getName();
+    evaluateScore(){
+    const scoreP1 = this.playerOne.getScore();
+    const nameP1 = this.playerOne.getName();
     const scoreP2 = this.playerTwo.getScore();
     const nameP2 = this.playerTwo.getName();
     
     if(scoreP1 == scoreP2 && scoreP1 >= 3){
-      return "Deuce";
+    	return "Deuce";
     } else if(scoreP1 <= 3 && scoreP2 <= 3){
     	return this.scoreValues[scoreP1] + " " + this.scoreValues[scoreP2]; 
     }
@@ -69,17 +69,15 @@ class Player {
   }
 }
 
-
-
 document.getElementById("createBtn").addEventListener("click", (event) => {
-	createGame(document.getElementById("playerOneName").value, document.getElementById("playerTwoName").value);
-  });
+  	createGame(document.getElementById("playerOneName").value, document.getElementById("playerTwoName").value);
+});
 document.getElementById("addPoints").hidden = true;
 
 function createGame(nameOne: string, nameTwo: string){
 	if(nameOne.length > 0 && nameTwo.length > 0){
   	let myGame = new Game(nameOne, nameTwo);
-		initGame(myGame, nameOne, nameTwo);
+	initGame(myGame, nameOne, nameTwo);
   }
 }
 
