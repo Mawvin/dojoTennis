@@ -9,4 +9,4 @@ The scoring system is rather simple:
 3. If both have 40 the players are deuce. a. If the game is in deuce, the winner of a ball will have advantage and game ball. b. If the player with advantage wins the ball he wins the game c. If the player without advantage wins they are back at deuce.
 
 
-<a href="https://jsfiddle.net/tzcx248e/1/show">Démo</a>
+<a href="https://jsfiddle.net/tzcx248e/2/show">Démo</a>
